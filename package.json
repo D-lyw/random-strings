@@ -1,0 +1,16 @@
+{
+  "name": "random-strings",
+  "version": "0.1.0",
+  "description": "get a random string by user format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "random",
+    "string",
+    "strings"
+  ],
+  "author": "D-lyw",
+  "license": "ISC"
+}
