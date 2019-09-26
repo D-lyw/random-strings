@@ -1,10 +1,13 @@
 {
-  "name": "random-strings",
+  "name": "@dlyw/random-string",
   "version": "0.1.0",
   "description": "get a random string by user format",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src --fix",
+    "lint:create": "eslint --init",
+    "build": "rollup -c "
   },
   "keywords": [
     "random",
@@ -12,5 +15,26 @@
     "strings"
   ],
   "author": "D-lyw",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "jquery": "^3.4.1",
+    "rollup": "^1.21.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-uglify": "^6.0.3",
+    "rollup-watch": "^4.3.1",
+    "tslib": "^1.10.0",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "the-answer": "^1.0.0"
+  }
 }
