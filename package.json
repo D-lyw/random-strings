@@ -4,21 +4,31 @@
   "description": "get a random string by user format",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src --fix",
     "lint:create": "eslint --init",
-    "build": "rollup -c "
+    "dev": "cross-env NODE_ENV=development rollup -c -w",
+    "build": "cross-env NODE_ENV=production rollup -c"
   },
   "keywords": [
     "random",
     "string",
-    "strings"
+    "strings",
+    "random-string",
+    "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/D-lyw/random-strings"
+  },
   "author": "D-lyw",
   "license": "ISC",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "cross-env": "^6.0.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
@@ -28,11 +38,13 @@
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-strip": "^1.2.2",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-uglify": "^6.0.3",
     "rollup-watch": "^4.3.1",
     "tslib": "^1.10.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "typescript-eslint-parser": "^22.0.0"
   },
   "dependencies": {
     "the-answer": "^1.0.0"
