@@ -28,6 +28,7 @@ if (process.env.NODE_ENV === 'development') {
         port: 3000
     }));
 } else if (process.env.NODE_ENV === 'production') {
+    option.output.file = 'lib/rs.js';
     option.plugins.push(uglify());
     option.plugins.push(strip({
         debugger: true,
