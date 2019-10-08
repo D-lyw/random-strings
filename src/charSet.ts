@@ -10,7 +10,17 @@ const alphabeticSet: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW
 
 const hexSet: string = '0123456789abcdef'
 
-const symbolSet: string = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+const base64Set: string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/=';
+
+const specialCharactorSet: string = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
 
-export {numberSet};
+export {
+    numberSet,
+    hexSet,
+    base64Set,
+    lowercaseCharactorSet,
+    uppercaseCharactorset,
+    alphanumericSet,
+    specialCharactorSet
+};

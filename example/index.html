@@ -1,16 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Random-string test</title>
 </head>
+
 <body>
     <script src="./rs.js"></script>
     <script>
-        console.log(rs);
-        console.log(rs({length: 8}));
+        console.log(rs({
+            type: 'number',
+            length: 6,
+            excludeCharSet: '567'
+        }));
+        // hex
+        console.log(rs({
+            type: 'hex',
+            length: 30,
+            excludeCharSet: 'abcde'
+        }));
+        // base64
+        console.log(rs({
+            type: 'base64',
+            length: 100
+        }))
+        // string
+        console.log(rs({
+            type: 'string',
+            length: 20,
+            capitalization: true
+        }))
+        // alphanumeric
+        console.log(rs({
+            type: 'alphanumeric',
+            length: 20,
+        }))
+        // password
+        console.log(rs({
+            type: 'password',
+            length: 16
+        }))
+        console.log(rs({
+            type: 'customized',
+            length: 20,
+            charactorSet: ['abcdefg@#$%^&*']
+        }))
     </script>
 </body>
+
 </html>
