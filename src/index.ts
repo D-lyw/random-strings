@@ -6,32 +6,39 @@ enum rsType { number, string, base64, hex, alphanumeric, password, customized };
 // supported charactor set types
 // enum rsCharSetType { number, }
 
-interface RSOption {
+interface configOption {
     length?: number,
     type?: string,
     capitalization?: boolean,
-    charactorSet?: [],
+    charactorSet?: string[],
     excludeCharSet?: string
 }
 
-const rs = (option: RSOption): string => {
-    // 判断参数格式并处理参数
-    option = option || {};
-    option.length = option.length || 8;
-    option.type = option.type || 'number';
-    option.capitalization = option.capitalization || false;
-    option.excludeCharSet = option.excludeCharSet || '';
-    option.charactorSet = option.charactorSet || [];
+/**
+ * 生成随机字符串
+ * @param option 配置信息对象
+ * @param option.type 类型 number/string/base64/hex/alphanumeric/password/customized
+ * @param option.length 生成字符串长度
+ * @param capitalization 是否包含大写字母
+ * @param charactorSet 用户指定的字符集合(在type="customized"时使用)
+ * @param excludeCharSet 移除指定类型集合的部分字符
+ */
+const rs = ({
+    type = 'number',
+    length = 8,
+    capitalization = false,
+    excludeCharSet = '',
+    charactorSet = [] }: configOption = {}): string => {
 
     let charset: string[];
-    // set charactor set
-    switch (rsType[option.type]) {
-        /**
-         * 步骤：
-         *   1、 获取指定类型的字符集合（customized用户自定义类型除外）
-         *   2、 加上获取用户提供的charactorSet字符集合
-         *   3、 去除用户提供的excludeCharSet集合
-         */
+
+    /**
+     * 步骤：
+     *   1、 获取指定类型的字符集合（customized用户自定义类型除外）
+     *   2、 加上获取用户提供的charactorSet字符集合
+     *   3、 去除用户提供的excludeCharSet集合
+     */
+    switch (rsType[type]) {
         case rsType.number:
             charset = numberSet.split('');
             break;
@@ -43,7 +50,7 @@ const rs = (option: RSOption): string => {
             break;
         case rsType.string:
             charset = lowercaseCharactorSet.split('');
-            if (option.capitalization) {
+            if (capitalization) {
                 charset = charset.concat(uppercaseCharactorset.split(''));
             }
             break;
@@ -51,20 +58,20 @@ const rs = (option: RSOption): string => {
             charset = alphanumericSet.split('');
             break;
         case rsType.password:
-            if (option.length < 8) {
+            if (length < 8) {
                 console.warn('strongly recommended that the password length be no less than 8');
             }
             charset = (specialCharactorSet + alphanumericSet).split('');
             break;
         case rsType.customized:
-            charset = option.charactorSet.join('').split('');
+            charset = charactorSet.join('').split('');
             break;
         default:
             throw new Error('the assigned type is not recognizable');
             break;
     }
-    execExcludeCharSet(charset, option.excludeCharSet);
-    return getRandomString(option.length, charset);
+    execExcludeCharSet(charset, excludeCharSet);
+    return getRandomString(length, charset);
 }
 
 /**

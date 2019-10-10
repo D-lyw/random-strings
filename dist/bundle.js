@@ -1,1 +1,1 @@
-!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?module.exports=n():"function"==typeof define&&define.amd?define(n):(e=e||self)["random-string"]=n()}(this,function(){"use strict";return function(e){console.log("Hi, "+e)}});
+!function (e, n) { "object" == typeof exports && "undefined" != typeof module ? module.exports = n() : "function" == typeof define && define.amd ? define(n) : (e = e || self)["random-string"] = n() }(this, function () { "use strict"; return function (e) { console.log("Hi, " + e) } });
