@@ -13,15 +13,17 @@ export default (config) => ({
         name: 'rs'
     },
     plugins: [
-        resovle(),
+        resovle({
+            mainFields: ['module', 'main', 'broswer']
+        }),
         commonjs(),
         typescript(),
-        terser(),
         strip({
             debugger: true,
             functions: ['console.log', 'assert.*', 'debug', 'alert'],
             sourceMap: false
-        })
+        }),
+        // terser()
     ],
     external: ['loadsh', 'jquery']
 });
