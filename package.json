@@ -1,6 +1,6 @@
 {
   "name": "@dlyw/random-string",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "get a random string by user format",
   "main": "lib/rs.js",
   "module": "lib/rs.esm.js",
