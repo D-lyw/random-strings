@@ -1,14 +1,18 @@
 {
   "name": "@dlyw/random-string",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "get a random string by user format",
   "main": "lib/rs.js",
-  "module": "lib/rs.js",
+  "module": "lib/rs.es.js",
   "scripts": {
     "lint": "eslint src --fix",
     "lint:create": "eslint --init",
-    "dev": "cross-env NODE_ENV=development rollup -c -w",
-    "build": "cross-env NODE_ENV=production rollup -c"
+    "dev": "rollup -c build/rollup.config.dev.js -w",
+    "build:cjs": "rollup -c build/rollup.config.cjs.js",
+    "build:iife": "rollup -c build/rollup.config.iife.js",
+    "build:es": "rollup -c build/rollup.config.es.js",
+    "build": "npm run build:cjs && npm run build:iife && npm run build:es && rollup -c build/rollup.config.umd.js",
+    "clean": "rm -rf dist/* && rm -rf lib/*"
   },
   "keywords": [
     "random",
@@ -39,11 +43,14 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-serve": "^1.0.1",
     "rollup-plugin-strip": "^1.2.2",
+    "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-uglify": "^6.0.3",
     "rollup-watch": "^4.3.1",
+    "tester": "^1.4.4",
     "tslib": "^1.10.0",
     "typescript": "^3.6.3",
     "typescript-eslint-parser": "^22.0.0"
-  }
+  },
+  "dependencies": {}
 }
