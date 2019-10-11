@@ -18,12 +18,12 @@ export default (config) => ({
         }),
         commonjs(),
         typescript(),
+        terser(),
         strip({
             debugger: true,
             functions: ['console.log', 'assert.*', 'debug', 'alert'],
             sourceMap: false
-        }),
-        // terser()
+        })
     ],
     external: ['loadsh', 'jquery']
 });
