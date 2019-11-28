@@ -2,17 +2,19 @@
   "name": "@dlyw/random-string",
   "version": "0.1.5",
   "description": "get a random string by user format",
-  "main": "lib/rs.js",
-  "module": "lib/rs.esm.js",
+  "main": "dist/random-string.js",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "typings": "lib/index.d.ts",
   "scripts": {
-    "lint": "eslint src --fix",
-    "lint:create": "eslint --init",
-    "dev": "rollup -c build/rollup.config.dev.js -w",
-    "build:cjs": "rollup -c build/rollup.config.cjs.js",
-    "build:iife": "rollup -c build/rollup.config.iife.js",
-    "build:esm": "rollup -c build/rollup.config.esm.js",
-    "build": "npm run build:cjs && npm run build:iife && npm run build:esm && rollup -c build/rollup.config.umd.js",
-    "clean": "rm -rf dist/* && rm -rf lib/*"
+    "lint": "eslint ./src/* --fix",
+    "dev": "cross-env NODE_ENV=development rollup -c -w",
+    "clean": "rm -rf dist/* && rm -rf lib/*",
+    "build": "npm run build:tsc && npm run build:rollup",
+    "build:tsc": "tsc -p ./tsconfig.json",
+    "build:rollup": "cross-env NODE_ENV=production rollup -c ./rollup.config.js"
   },
   "keywords": [
     "random",
@@ -30,7 +32,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
-    "cross-env": "^6.0.0",
+    "cross-env": "^6.0.3",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",

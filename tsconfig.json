@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "incremental": true,
+        "target": "es5",
+        // "lib": [],
+        "moduleResolution": "node",
+        "outDir": "lib",
+        // "allowJs": true,
+        // "checkJs": true,
+        "declaration": true,
+        "declarationDir": "./lib",
+        // "sourceMap": true,
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        // "inlineSourceMap": true,
+        "experimentalDecorators": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "compileOnSave": false
+}

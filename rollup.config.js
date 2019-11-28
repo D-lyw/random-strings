@@ -2,23 +2,21 @@
 import resovle from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { uglify } from 'rollup-plugin-uglify';
-import typescript from 'rollup-plugin-typescript';
 import serve from 'rollup-plugin-serve';
 import strip from 'rollup-plugin-strip';
 
 const option = {
-    input: 'src/index.ts',
+    input: 'lib/index.js',
     output: {
-        file: 'dist/rs.js',
+        file: 'dist/random-string.js',
         format: 'umd',
-        name: 'rs'
+        name: 'random-string'
     },
     plugins: [
         resovle(),
-        commonjs(),
-        typescript()
+        commonjs()
     ],
-    external: ['loadsh', 'jquery']
+    external: ['lodash', 'jquery']
 };
 
 if (process.env.NODE_ENV === 'development') {
@@ -28,8 +26,7 @@ if (process.env.NODE_ENV === 'development') {
         port: 3000
     }));
 } else if (process.env.NODE_ENV === 'production') {
-    option.output.file = 'lib/rs.js';
-    option.plugins.push(uglify());
+    // option.plugins.push(uglify());
     option.plugins.push(strip({
         debugger: true,
         functions: ['console.log', 'assert.*', 'debug', 'alert'],

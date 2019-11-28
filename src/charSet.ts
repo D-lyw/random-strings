@@ -6,9 +6,7 @@ const uppercaseCharactorset: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 const alphanumericSet: string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-const alphabeticSet: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-const hexSet: string = '0123456789abcdef'
+const hexSet: string = '0123456789abcdef';
 
 const base64Set: string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/=';
 
